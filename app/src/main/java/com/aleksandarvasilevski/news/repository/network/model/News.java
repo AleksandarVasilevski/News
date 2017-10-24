@@ -4,29 +4,36 @@ package com.aleksandarvasilevski.news.repository.network.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class News {
 
-    @SerializedName("title")
+    public News(ArrayList<Article> article){
+        this.article = article;
+    }
+
+    @SerializedName("source")
     @Expose
-    private String title;
+    private String source;
 
-    @SerializedName("description")
+    @SerializedName("articles")
     @Expose
-    private String description;
+    private ArrayList<Article> article;
 
-    public String getTitle() {
-        return title;
+
+    public String getSource() {
+        return source;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public String getDescription() {
-        return description;
+    public ArrayList<Article> getArticle() {
+        return article;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setArticle(ArrayList<Article> article) {
+        this.article = article;
     }
 }

@@ -8,12 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.aleksandarvasilevski.news.repository.network.model.News;
+
+import java.util.ArrayList;
+
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     private static final String TAG = "NewsAdapter";
+    private ArrayList<News> list;
 
-    private String[] dataTitle = {"Title1", "Title2", "Title3",};
-    private String[] dataDescription = {"Des1", "Des2", "Des3"};
+    public NewsAdapter(ArrayList<News> list){
+        this.list = list;
+    }
 
     /**
      * Provide a reference to the type of views that you are using (custom ViewHolder)
@@ -58,13 +64,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
-        holder.getTitleTV().setText(dataTitle[position]);
-        holder.getDescriptionTV().setText(dataDescription[position]);
+
+        holder.getTitleTV().setText(list.get(position).getArticle().get(position).getTitle());
+        holder.getDescriptionTV().setText(list.get(position).getArticle().get(position).getDescription());
     }
 
     // Return the size of your dataset (invoked by the layout manager
     @Override
     public int getItemCount() {
-        return dataTitle.length;
+        Log.i(TAG, "ArraySize: " + list.size());
+        return list.size();
     }
 }

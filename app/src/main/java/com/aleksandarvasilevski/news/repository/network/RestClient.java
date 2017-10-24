@@ -6,7 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
 
-    public static final String URL = "https://newsapi.org/v1/articles?source=google-news&sortBy=top&apiKey=182f7eaaa40c487abe388ac68f15f648";
+    public static final String URL =
+            "https://newsapi.org/";
 
     private IRestService restService;
 
